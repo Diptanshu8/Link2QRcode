@@ -1,5 +1,6 @@
 import qrcode
 import argparse
+import os
 from PIL import ImageColor
 
 def parameter_handler(args):
@@ -28,7 +29,11 @@ def parameter_handler(args):
             print "Error: The user didn't specify the location to save the QR code."
             exit()
         else:
-            location = args.location
+            if os.path.exists(args.location):
+                location = args.location
+            else:
+                print "Error: The user specified location doesn't exist."
+                exit()
         if not args.name:
             print "Error: The user didn't specify the name by which the the QR code will be saved."
             exit()
@@ -59,4 +64,5 @@ qr.add_data(link)
 qr.make(fit=True)
 
 img = qr.make_image(fill_color = fill_color, back_color = back_color)
-#img.show()
+output_name+=".png"
+img.save(os.path.join(location,output_name))

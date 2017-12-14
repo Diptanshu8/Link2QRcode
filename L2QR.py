@@ -39,6 +39,7 @@ def parameter_handler(args):
             exit()
         else:
             output_name = args.name
+            output_name+=".png"
 
     #retrieving the URL from argparse
     link = args.url
@@ -64,5 +65,6 @@ qr.add_data(link)
 qr.make(fit=True)
 
 img = qr.make_image(fill_color = fill_color, back_color = back_color)
-output_name+=".png"
-img.save(os.path.join(location,output_name))
+if args.save:
+    img.save(os.path.join(location,output_name))
+#img.show()

@@ -1,0 +1,4 @@
+olefile==0.44
+Pillow==4.3.0
+qrcode==5.3
+six==1.11.0

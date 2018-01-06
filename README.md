@@ -18,3 +18,4 @@ Note: Inorder to see a list of colors, pass --show-colors parameter while execut
 # Future Work
 - Generating a distributable .exe
 - Extending a UI or hosting a web-app for free usage.
+
